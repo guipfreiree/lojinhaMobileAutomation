@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 @DisplayName("Testes para o módulo de Produtos")
 public class ProdutoTest {
@@ -33,6 +34,17 @@ public class ProdutoTest {
 
         app.findElement(By.id("com.lojinha:/id/loginButton")).click();
 
+        app.findElement(By.id("com.lojinha:/id/floatingActionButton")).click();
 
+        app.findElement(By.id("com.lojinha:/id/productName")).click();
+        app.findElement(By.id("com.lojinha:/id/productName")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("iPhone 14");
+
+        app.findElement(By.id("com.lojinha:/id/productValue")).click();
+        app.findElement(By.id("com.lojinha:/id/productValue")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("700001");
+
+        app.findElement(By.id("com.lojinha:/id/productColors")).click();
+        app.findElement(By.id("com.lojinha:/id/productColors")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("Preto e Amarelo");
+
+        app.findElement(By.id("com.lojinha:/id/saveButton")).click();
     }
 }
