@@ -1,5 +1,7 @@
 package modulos.produto;
 
+import dev.failsafe.internal.util.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -15,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class ProdutoTest {
     @DisplayName("Validacao do valor de produto nao permitido")
     @Test
-    public void testValorProdutoIgualAZero() throws MalformedURLException {
+    public void testValorProdutoMaiorQue7mil() throws MalformedURLException {
         DesiredCapabilities capacidades = new DesiredCapabilities();
         capacidades.setCapability("deviceName", "Google Pixel 3");
         capacidades.setCapability("platformName", "Android");
@@ -47,5 +49,9 @@ public class ProdutoTest {
         app.findElement(By.id("com.lojinha:/id/productColors")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("Preto e Amarelo");
 
         app.findElement(By.id("com.lojinha:/id/saveButton")).click();
+
+        String mensagemApresentada = app.findElement(By.xpath("//android.widget.Toast")).getText();
+
+        Assertions.assertEquals("O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00", mensagemApresentada);
     }
 }
