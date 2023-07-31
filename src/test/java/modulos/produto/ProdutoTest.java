@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import telas.LoginTela;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -30,13 +31,11 @@ public class ProdutoTest {
     @DisplayName("Validacao do valor de produto nao permitido")
     @Test
     public void testValorProdutoMaiorQue7mil() {
-        app.findElement(By.id("com.lojinha:/id/user")).click();
-        app.findElement(By.id("com.lojinha:/id/user")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("admin");
 
-        app.findElement(By.id("com.lojinha:/id/password")).click();
-        app.findElement(By.id("com.lojinha:/id/password")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("admin");
-
-        app.findElement(By.id("com.lojinha:/id/loginButton")).click();
+        new LoginTela(app)
+                .inserirUsuario("admin")
+                .inserirSenha("admin")
+                .direcionaParaListagemDeProdutos();
 
         app.findElement(By.id("com.lojinha:/id/floatingActionButton")).click();
 
