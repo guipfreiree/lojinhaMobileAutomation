@@ -25,6 +25,7 @@ public class ProdutoTest {
         capacidades.setCapability("app", "/Users/guilhermepereirafreire/IdeaProjects/lojinhaMobile/LojinhaAndroidNativa/lojinha-nativa.apk");
 
         WebDriver app = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capacidades);
+        app.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         app.findElement(By.id("com.lojinha:/id/user")).click();
         app.findElement(By.id("com.lojinha:/id/user")).findElement(By.id("com.lojinha:/id/editText")).sendKeys("admin");
