@@ -23,9 +23,9 @@ public class LoginTela {
         return this;
     }
 
-    public ListaProdutos direcionaParaListagemDeProdutos() {
+    public ListaProdutosTela direcionaParaListagemDeProdutos() {
         app.findElement(By.id("com.lojinha:/id/loginButton")).click();
 
-        return new ListaProdutos(app);
+        return new ListaProdutosTela(app);
     }
 }
