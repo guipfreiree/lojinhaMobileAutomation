@@ -3,10 +3,10 @@ package telas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginTela {
-    private WebDriver app;
+public class LoginTela extends BaseTela{
+
     public LoginTela(WebDriver app) {
-        this.app = app;
+        super(app);
     }
 
     public LoginTela inserirUsuario(String nomeUsuario) {

@@ -3,11 +3,11 @@ package telas;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AdicionarProdutoTela {
+public class AdicionarProdutoTela extends BaseTela{
     private WebDriver app;
 
     public AdicionarProdutoTela(WebDriver app) {
-        this.app = app;
+        super(app);
     }
 
     public AdicionarProdutoTela inserirNomeProduto (String nomeProduto) {
@@ -38,6 +38,6 @@ public class AdicionarProdutoTela {
     }
 
     public String obterMensagemDeErro() {
-        return app.findElement(By.xpath("//android.widget.Toast")).getText();
+        return obterMensagemDeErro();
     }
 }
